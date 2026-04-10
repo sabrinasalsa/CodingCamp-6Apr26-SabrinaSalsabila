@@ -1,0 +1,321 @@
+/* Personal Dashboard styles */
+
+/* ── CSS Custom Properties ────────────────────────────────── */
+:root {
+  --bg-page:    #f0f2f5;
+  --bg-widget:  #ffffff;
+  --text-main:  #1a1a2e;
+  --text-muted: #6b7280;
+  --border:     #e5e7eb;
+}
+
+[data-theme="dark"] {
+  --bg-page:    #0f1117;
+  --bg-widget:  #1e2130;
+  --text-main:  #e8eaf0;
+  --text-muted: #9ca3af;
+  --border:     #374151;
+}
+
+/* ── Reset / Base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  background: var(--bg-page);
+  color: var(--text-main);
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+/* ── Dashboard Header ─────────────────────────────────────── */
+.dashboard-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#btn-theme-toggle {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--bg-widget);
+  color: var(--text-main);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+#btn-theme-toggle:hover {
+  background: var(--bg-page);
+  border-color: var(--text-muted);
+}
+
+/* ── Dashboard Grid (≥768px: multi-column) ────────────────── */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ── Widget Cards ─────────────────────────────────────────── */
+.widget {
+  background: var(--bg-widget);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ── Greeting Widget ──────────────────────────────────────── */
+#greeting-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+#time-display {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+}
+
+#date-display {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+#name-input {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  background: var(--bg-page);
+  transition: border-color 0.15s;
+}
+
+#name-input:focus {
+  outline: none;
+  border-color: #4a4e69;
+  background: var(--bg-widget);
+}
+
+#btn-save-name {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: #4a4e69;
+  color: #fff;
+  transition: background 0.15s;
+}
+
+#btn-save-name:hover {
+  background: #3a3d55;
+}
+
+/* ── Focus Timer Widget ───────────────────────────────────── */
+#timer-display {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: var(--text-main);
+}
+
+.timer-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+/* Visual indication when timer session is complete */
+.timer-complete #timer-display {
+  color: #e63946;
+}
+
+.timer-complete {
+  border: 2px solid #e63946;
+  background: #fff5f5;
+}
+
+.duration-input-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#duration-input {
+  width: 5rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  background: var(--bg-page);
+  transition: border-color 0.15s;
+}
+
+#duration-input:focus {
+  outline: none;
+  border-color: #4a4e69;
+  background: var(--bg-widget);
+}
+
+#duration-input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#btn-set-duration {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: #4a4e69;
+  color: #fff;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+#btn-set-duration:hover:not(:disabled) {
+  background: #3a3d55;
+}
+
+#btn-set-duration:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Inputs ───────────────────────────────────────────────── */
+input[type="text"] {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  background: var(--bg-page);
+  transition: border-color 0.15s;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #4a4e69;
+  background: var(--bg-widget);
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+button {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: #4a4e69;
+  color: #fff;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+button:hover:not(:disabled) {
+  background: #3a3d55;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── To-Do List ───────────────────────────────────────────── */
+.task-input-row,
+.link-input-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+#task-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  background: var(--bg-page);
+  border: 1px solid var(--border);
+}
+
+#task-list li.completed label {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+#task-list li label {
+  flex: 1;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* ── Quick Links ──────────────────────────────────────────── */
+#links-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+#links-list .link-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+#links-list .link-item button:first-child {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+#links-list .link-item button:first-child:hover {
+  background: #c7d2fe;
+}
+
+/* ── Error Messages ───────────────────────────────────────── */
+.error-msg {
+  font-size: 0.8rem;
+  color: #e63946;
+  min-height: 1.2em;
+}
+
+/* ── Responsive: single-column below 768px ────────────────── */
+@media (max-width: 767px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

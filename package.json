@@ -1,0 +1,15 @@
+{
+  "name": "personal-dashboard",
+  "version": "1.0.0",
+  "description": "Personal dashboard with theme, greeting, and timer enhancements",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^2.0.0",
+    "fast-check": "^3.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "jsdom": "^24.0.0"
+  }
+}

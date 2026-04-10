@@ -1,0 +1,45 @@
+// Minimal DOM scaffold required by app.js DOMContentLoaded handler.
+// This runs before each test file so that when app.js is imported the
+// elements it queries already exist.
+document.body.innerHTML = `
+  <header class="dashboard-header">
+    <button id="btn-theme-toggle">☾ Dark</button>
+  </header>
+  <main class="dashboard-grid">
+    <section class="widget" id="widget-greeting">
+      <p id="greeting-text"></p>
+      <p id="time-display"></p>
+      <p id="date-display"></p>
+      <input type="text" id="name-input" placeholder="Your name…" />
+      <button id="btn-save-name">Save</button>
+    </section>
+    <section class="widget" id="widget-timer">
+      <p id="timer-display">25:00</p>
+      <div class="timer-controls">
+        <button id="btn-start">Start</button>
+        <button id="btn-stop">Stop</button>
+        <button id="btn-reset">Reset</button>
+      </div>
+      <input type="number" id="duration-input" min="1" max="180" placeholder="25" />
+      <button id="btn-set-duration">Set</button>
+      <p id="duration-error" class="error-msg" hidden></p>
+    </section>
+    <section class="widget" id="widget-todo">
+      <div class="task-input-row">
+        <input type="text" id="task-input" placeholder="New task..." />
+        <button id="btn-add-task">Add</button>
+      </div>
+      <p id="task-error" class="error-msg" hidden></p>
+      <ul id="task-list"></ul>
+    </section>
+    <section class="widget" id="widget-links">
+      <div class="link-input-row">
+        <input type="text" id="link-label-input" placeholder="Label" />
+        <input type="text" id="link-url-input" placeholder="https://..." />
+        <button id="btn-add-link">Add</button>
+      </div>
+      <p id="link-error" class="error-msg" hidden></p>
+      <div id="links-list"></div>
+    </section>
+  </main>
+`;
